@@ -1,7 +1,7 @@
 @echo off
-:: Versión del 30 de noviembre del 2019
+:: Versión del 2 de febrero del 2020
 
-Title DigiCuack Encoder (1.2.1)
+Title DigiCuack Encoder (1.3)
 
 :Start
 echo "______ _       _ _____                  _      _____                    _           "
@@ -11,7 +11,7 @@ echo "| | | | |/ _\ | | |   | | | |/ _\ |/ __| |/ / |  __| '_ \ / __/ _ \ / _\ |
 echo "| |/ /| | (_| | | \__/\ |_| | (_| | (__|   <  | |__| | | | (_| (_) | (_| |  __/ |   "
 echo "|___/ |_|\__, |_|\____/\__,_|\__,_|\___|_|\_\ \____/_| |_|\___\___/ \__,_|\___|_|   "
 echo "          __/ |                                                                     "
-echo "         |___/                                        v 1.2.1      By: Liam McHara    "
+echo "         |___/                                        v 1.3      By: Liam McHara    "
 echo.
 
 :: Salta la selección si se envía como parámetro
@@ -28,37 +28,18 @@ for %%a in ("Payloads\*.duck") do (
 	set /a cantidad += 1 
 	@echo !cantidad!  %%~na
 )
-endlocal && set cantidad=%cantidad%
 echo.
-echo Cantidad de payloads en carpeta: %cantidad%
-echo.
-echo.
-setlocal enableextensions enabledelayedexpansion
-set /p "numero=Escribe el numero del payload que quieras cargar: " || cls && goto Start
-set /a numero="%numero%"	
-set numero=%numero: =%
-echo tu numero es el: %numero%
 
+set /p "numero=Escribe el numero del payload que quieras cargar: " || cls && goto Start
 
 set /a i=1
 for %%a in ("Payloads\*.duck") do (
-	@echo Evaluando: !i! igual a %numero% ?
-	if !i! EQU numero (echo SI) else (echo nop)
+	if !i! EQU !numero! (set payload=%%~na)
 	set /a i += 1 
 )
+
 endlocal && set payload=%payload%
-echo %payload%
-
-timeout 100
-
-
-
-
-
-
-
-
-
+if not defined payload cls && goto Start
 
 :Selected
 :: Elimina espacios en la variable 
