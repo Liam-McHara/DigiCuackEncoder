@@ -1,8 +1,10 @@
 # Ignore everything in the root
 /*
 # Un-ignore all of subtree
-!Payloads/
-*txt
+!/Payloads/
+*.duck
+*.bat
+*.txt
 !Place*
 !DigiCuack_Encoder.bat
 !duck2spark.py
