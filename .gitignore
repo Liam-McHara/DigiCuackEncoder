@@ -5,6 +5,8 @@
 *.duck
 *.bat
 *.txt
+!Hello*
+!test*
 !Place*
 !DigiCuack_Encoder.bat
 !duck2spark.py
