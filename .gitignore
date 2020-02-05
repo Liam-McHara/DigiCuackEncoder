@@ -1,0 +1,10 @@
+# Ignore everything in the root
+/*
+# Un-ignore all of subtree
+!/Payloads/ 
+*.txt
+!DigiCuack_Encoder.bat
+!duck2spark.py
+!encoder.jar
+!README.md
+!.gitignore

