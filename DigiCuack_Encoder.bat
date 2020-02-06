@@ -1,9 +1,14 @@
 @echo off
 setlocal enableextensions enabledelayedexpansion
 
-:: Versión del 6 de febrero del 2020
+::          X.X   DD-MM-YYYY  Author   Description
+set version=1.4 &:06-02-2020  Liam     Framework ready
+:: !! For a new version entry, copy the last entry down and modify Date, Author and Description
+set version=%version: =%
 
-Title DigiCuack Encoder (1.4)
+:: Set the title
+set title=DigiCuack Encoder (%version%)
+title %title%
 
 :Start
 echo "______ _       _ _____                  _      _____                    _           "
@@ -13,7 +18,7 @@ echo "| | | | |/ _\ | | |   | | | |/ _\ |/ __| |/ / |  __| '_ \ / __/ _ \ / _\ |
 echo "| |/ /| | (_| | | \__/\ |_| | (_| | (__|   <  | |__| | | | (_| (_) | (_| |  __/ |   "
 echo "|___/ |_|\__, |_|\____/\__,_|\__,_|\___|_|\_\ \____/_| |_|\___\___/ \__,_|\___|_|   "
 echo "          __/ |                                                                     "
-echo "         |___/                                        v 1.4      By: Liam McHara    "
+echo "         |___/                                        v %version%      By: Liam McHara    "
 echo.
 
 :: Salta la selección si se envía como parámetro
