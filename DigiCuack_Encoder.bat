@@ -21,12 +21,12 @@ if NOT [%1]==[] set payload=%1 && goto Selected
 echo Se han encontrado los siguientes payloads:
 echo.
 
-:: Lista los archivos .duck de la carpeta Payloads (sin la extensión)
+:: Lista los archivos .duck de la carpeta Payloads (sin la extensión), los cuenta (cantidad)
 setlocal enableextensions enabledelayedexpansion
 set /a cantidad=0
 for %%a in ("Payloads\*.duck") do (
 	set /a cantidad += 1 
-	@echo !cantidad!  %%~na
+	@echo   !cantidad!  %%~na
 )
 echo.
 
@@ -52,7 +52,7 @@ echo.
 del raw.bin >nul 2>nul
 
 :: 1. codifiacion (sin echo)
-java -jar encoder.jar -i Payloads\%payload%.duck -o raw.bin -l es >nul 2>nul
+java -jar encoder.jar -i Payloads\%payload%.duck" -o raw.bin -l es >nul 2>nul
 
 :: 2. comprobación
 IF NOT EXIST raw.bin (goto Error)
@@ -65,10 +65,12 @@ duck2spark.py -i raw.bin -l 1 -f 2000 -o Sketches\%payload%\sketch\sketch.ino
 echo Conversion a Digispark - OK!
 echo|set /p="Iniciando Arduino IDE... "
 
-Sketches\%payload%\sketch\sketch.ino
+:: Método con GUI 
+:: Sketches\%payload%\sketch\sketch.ino
 
 :: Método sin GUI:
-::"C:\Program Files (x86)\Arduino\arduino_debug.exe" --upload Sketches\%payload%\sketch\sketch.ino
+"C:\Program Files (x86)\Arduino\arduino_debug.exe" --upload Sketches\%payload%\sketch\sketch.ino 
+::| find "Sketch" > out.txt
 
 echo OK!
 goto Salir

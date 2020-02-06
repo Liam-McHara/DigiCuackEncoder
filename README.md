@@ -1,10 +1,11 @@
 # DigiCuackEncoder
 A simple tool for easily encode Ducky Scripts and upload them on DigiSpark.
 
-## Nuevas funciones para futuras versiones:
+## TO-DOs:
 
-- ~~Seleccionar payload mediante lista numerada~~
-- Payload del patito cabrón
+- ~~Select payload in an ordered list~~
+- Goose-bastard payload
+- Fix problems with spaces in payload names
 - Personalizar payloads
 	- tiempo de espera entre comandos
 	- user + passwd
